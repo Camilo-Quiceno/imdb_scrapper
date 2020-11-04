@@ -1,0 +1,6 @@
+movie_site:
+  imdb:
+    url: 'https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm'
+    queries: 
+      home_movie_links: '//tbody[@class="lister-list"]/tr//a[@href and @title]/@href'
+      movie_tittle: ''
