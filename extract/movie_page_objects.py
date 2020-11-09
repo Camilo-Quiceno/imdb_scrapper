@@ -36,5 +36,39 @@ class HomePage(StorePage):
         for link in self._select(self._queries['home_movie_links']):
             movie_links.append(link)
             
+        print("Success,Movie links scraped!")
            
         return movie_links
+
+
+class MoviePage(StorePage):
+    def __init__(self, movie_site_id, url):
+        super().__init__(movie_site_id, url)
+
+    @property
+    def movie_title(self):
+        return self._select(self._queries['movie_title'])
+
+    @property
+    def movie_year(self):
+        return self._select(self._queries['movie_year'])
+
+    @property
+    def movie_gender(self):
+        return self._select(self._queries['movie_gender'])
+
+    @property
+    def movie_rating(self):
+        return self._select(self._queries['movie_rating'])
+    
+    @property
+    def movie_director(self):
+        return self._select(self._queries['movie_director'])
+    
+    @property
+    def movie_sumary(self):
+        return self._select(self._queries['movie_sumary'])
+
+    @property
+    def movie_duration(self):
+        return self._select(self._queries['movie_duration'])

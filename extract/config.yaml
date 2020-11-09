@@ -1,6 +1,13 @@
 movie_site:
   imdb:
+    url_base: 'https://www.imdb.com/'
     url: 'https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm'
     queries: 
       home_movie_links: '//tbody[@class="lister-list"]/tr//a[@href and @title]/@href'
-      movie_tittle: ''
+      movie_title: '//div[@class="title_wrapper"]/h1/text()[1]'
+      movie_year: '//div[@class="title_wrapper"]//span[@id="titleYear"]/a/text()'
+      movie_gender: '//div[@class="title_wrapper"]/div[@class="subtext"]/a[not(@title)]/text()'
+      movie_rating: '//div[@class="title_bar_wrapper"]//div[@class="ratingValue"]//span[@itemprop="ratingValue"]/text()'
+      movie_director: '//div[@class="plot_summary_wrapper"]//div[@class="credit_summary_item"][1]/a/text()'
+      movie_sumary: '//div[@class="plot_summary_wrapper"]//div[@class="summary_text"]/text()'
+      movie_duration: '//div[@class="title_wrapper"]//time[@datetime]/text()'
