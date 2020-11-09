@@ -8,7 +8,7 @@ from common import config
 def _movie_scrapper(movie_site_id):
     
     host = config()['movie_site'][movie_site_id]['url']
-    
+
     print(f'Welcome! \nThe site: {movie_site_id} is going to be scraped...')
 
     homepage = movie.HomePage(movie_site_id,host)
@@ -26,7 +26,24 @@ def _movie_scrapper(movie_site_id):
         movies.append(movie_page)
         print(f'Movie {movie_page.movie_title[0]}fetched!')
 
-    print (movies)
+    _save_movies(movie_site_id,movies)
+
+
+def _save_movies(book_site_id,movies_info):
+    now = datetime.datetime.now().strftime('%Y_%m_%d') #Se toma el momento en que se ejecuta el programa
+    out_file_name = '{}_{}_movies_info.csv'.format(book_site_id,now) #Se le da nombre al archivo teniendo en cuenta la hora y el sitio
+
+    csv_headears = list(filter(lambda property: not property.startswith('_'), dir(movies_info[0])))
+
+    #Se escribe sobre el archivo creado.
+    with open(out_file_name, mode='w+',encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(csv_headears)
+
+        for movies_info in movies_info:
+            row = [str(getattr(movies_info, prop)) for prop in csv_headears]
+            writer.writerow(row)
+
 
 if __name__ == "__main__":
     
