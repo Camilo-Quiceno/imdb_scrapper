@@ -3,6 +3,7 @@ import argparse
 import pandas as pd
 
 def main(filename):
+
     print(' -------Cleaning data------- ')
 
     df = _read_data(filename)
@@ -12,6 +13,7 @@ def main(filename):
     df = _change_column_order(df)
     df = _filling_empty_spaces(df)
     df = _adding_uid(df)
+    df = _adding_movie_host_uid(df,filename)
 
     _save_data(df,filename)
 
@@ -130,6 +132,7 @@ def _filling_empty_spaces(df):
 
     return df
 
+
 def _adding_uid(df):
     print(' -------Adding uid------- ')
     count_row = df.shape[0]
@@ -142,6 +145,23 @@ def _adding_uid(df):
     df['uid'] = uid
  
     return df.set_index('uid') #Le decimos al DataFrame que el nuevo uid será nuestro index
+
+
+def  _adding_movie_host_uid(df, filename):
+    
+    movie_host_uid = filename.split('_')[0]
+    count_row = df.shape[0]
+
+    movie_host_uid_list = []
+
+    for _ in range(1,count_row + 1):
+        movie_host_uid_list.append(movie_host_uid)
+
+    df['movie_host_uid'] = movie_host_uid_list
+
+    return df
+
+
 
 def _save_data(df,filename):
     print(' -------Saving clean data------- ')

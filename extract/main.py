@@ -29,9 +29,9 @@ def _movie_scrapper(movie_site_id):
     _save_movies(movie_site_id,movies)
 
 
-def _save_movies(book_site_id,movies_info):
+def _save_movies(movie_site_id,movies_info):
     now = datetime.datetime.now().strftime('%Y_%m_%d') #Se toma el momento en que se ejecuta el programa
-    out_file_name = '{}_{}_movies_info.csv'.format(book_site_id,now) #Se le da nombre al archivo teniendo en cuenta la hora y el sitio
+    out_file_name = '{}_{}_movies_info.csv'.format(movie_site_id,now) #Se le da nombre al archivo teniendo en cuenta la hora y el sitio
 
     csv_headears = list(filter(lambda property: not property.startswith('_'), dir(movies_info[0])))
 
