@@ -20,7 +20,8 @@ def main(filename):
                           row['movie_rating'],
                           row['movie_gender'],
                           row['movie_duration'],
-                          row['movie_year'])
+                          row['movie_year'],
+                          row['movie_host_uid'])
 
         session.add(article) #Ingresa nuestro articulo a la base de datos
 
