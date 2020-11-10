@@ -44,7 +44,6 @@ def _save_movies(book_site_id,movies_info):
             row = [str(getattr(movies_info, prop)) for prop in csv_headears]
             writer.writerow(row)
 
-
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
