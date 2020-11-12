@@ -5,7 +5,7 @@ import datetime
 def main():
     print("Welcome to the pipeline")
 
-    movies_host_uids = ['imdb']
+    movies_host_uids = ['imdb','reelgood']
     now = datetime.datetime.now().strftime("%Y_%m_%d")
 
     for movie_host_uid in movies_host_uids:

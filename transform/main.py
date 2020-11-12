@@ -12,7 +12,7 @@ def main(filename):
     df = _transform_rating(df)
     df = _change_column_order(df)
     df = _filling_empty_spaces(df)
-    df = _adding_uid(df)
+    df = _adding_uid(df,filename)
     df = _adding_movie_host_uid(df,filename)
 
     _save_data(df,filename)
@@ -133,14 +133,16 @@ def _filling_empty_spaces(df):
     return df
 
 
-def _adding_uid(df):
+def _adding_uid(df,filename):
     print(' -------Adding uid------- ')
     count_row = df.shape[0]
     
     uid = []
+    movie_host_uid = filename.split('_')[0]
+    
 
     for i in range(1,count_row + 1):
-        uid.append(i)
+        uid.append(f'{i}_{movie_host_uid}')
     
     df['uid'] = uid
  
@@ -179,5 +181,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     df = main(args.filename)
+    print(df)
 
     print('Transform is done!')
