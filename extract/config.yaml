@@ -11,3 +11,16 @@ movie_site:
       movie_director: '//div[@class="plot_summary_wrapper"]//div[@class="credit_summary_item"][1]/a/text()'
       movie_sumary: '//div[@class="plot_summary_wrapper"]//div[@class="summary_text"]/text()'
       movie_duration: '//div[@class="title_wrapper"]//time[@datetime]/text()'
+
+  letterbox:
+    url_base: 'https://letterboxd.com/'
+      url: 'https://letterboxd.com/films/popular/this/week/'
+      queries: 
+        home_movie_links: '//ul[@class="poster-list -p70 -grid"]//a[@href and @class="frame"]/@href'
+        movie_title: '//section[@class="film-header-lockup"]/h1[@class="headline-1 js-widont prettify"]/text()'
+        movie_year: '//section[@class="film-header-lockup"]//small[@class="number"]/a[@href]/text()'
+        movie_gender: '//div[@id="tab-genres"]//p/a[@href]/text()'
+        movie_rating: '//section[@class="section ratings-histogram-chart"]//span[@class="average-rating"]//a[@href]/text()'
+        movie_director: '//section[@class="film-header-lockup"]//a[@href]/span[@class]/text()'
+        movie_sumary: '//div[@class="review body-text -prose -hero prettify"]//div[@class="truncate"]//p/text()'
+        movie_duration: '//section[@class="section col-10 col-main"]//p[@class="text-link text-footer"]/text()[1]'
