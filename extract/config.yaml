@@ -12,15 +12,15 @@ movie_site:
       movie_sumary: '//div[@class="plot_summary_wrapper"]//div[@class="summary_text"]/text()'
       movie_duration: '//div[@class="title_wrapper"]//time[@datetime]/text()'
 
-  letterbox:
-    url_base: 'https://letterboxd.com/'
-      url: 'https://letterboxd.com/films/popular/this/week/'
-      queries: 
-        home_movie_links: '//ul[@class="poster-list -p70 -grid"]//a[@href and @class="frame"]/@href'
-        movie_title: '//section[@class="film-header-lockup"]/h1[@class="headline-1 js-widont prettify"]/text()'
-        movie_year: '//section[@class="film-header-lockup"]//small[@class="number"]/a[@href]/text()'
-        movie_gender: '//div[@id="tab-genres"]//p/a[@href]/text()'
-        movie_rating: '//section[@class="section ratings-histogram-chart"]//span[@class="average-rating"]//a[@href]/text()'
-        movie_director: '//section[@class="film-header-lockup"]//a[@href]/span[@class]/text()'
-        movie_sumary: '//div[@class="review body-text -prose -hero prettify"]//div[@class="truncate"]//p/text()'
-        movie_duration: '//section[@class="section col-10 col-main"]//p[@class="text-link text-footer"]/text()[1]'
+  reelgood:
+    url_base: 'https://reelgood.com/'
+    url: 'https://reelgood.com/movies/browse/popular-movies'
+    queries: 
+      home_movie_links: '//tbody/tr[@class="css-o6sgwe"]//td/a[@href]/@href'
+      movie_title: '//section[@class="css-vzt30e e14injhv0"]//h1[@class="css-of585f e14injhv7"]/text()'
+      movie_year: '//div[@class="css-1avg5xn ey4ir3j0"]//span[@class="css-dpg6zk ey4ir3j1"][5]/a[@href]/text()'
+      movie_gender: '//div[@class="css-1avg5xn ey4ir3j0"]//span[@class="css-dpg6zk ey4ir3j1"][3]/a[@href]/text()'
+      movie_rating: '//div[@class="css-1avg5xn ey4ir3j0"]//span[@class="css-dpg6zk ey4ir3j1"][2]//span[@class="css-xmin1q ey4ir3j8"]/text()'
+      movie_director: '//div[@class="css-1baulvz e1yfir8f5"]//a[@itemprop="director"]//h3/text()'
+      movie_sumary: '//div[@class="css-zzy0ri e50tfam1"]//p[@itemprop="description"]/text()'
+      movie_duration: '//div[@class="css-1avg5xn ey4ir3j0"]//span[@class="css-dpg6zk ey4ir3j1"][6]/text()'
