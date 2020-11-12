@@ -17,6 +17,7 @@ def _movie_scrapper(movie_site_id):
     print(f'You are going to scrap: {len(links)} links')
 
     movies = []
+    movie_number = 1
 
     for link in links:
 
@@ -24,10 +25,10 @@ def _movie_scrapper(movie_site_id):
 
         movie_page = movie.MoviePage(movie_site_id,url)
         movies.append(movie_page)
-        print(f'Movie {movie_page.movie_title[0]}fetched!')
+        print(f'Movie {movie_page.movie_title[0]} fetched! {movie_number} of {len(links)}')
+        movie_number += 1
 
-
-    #_save_movies(movie_site_id,movies)
+    _save_movies(movie_site_id,movies)
 
 
 def _save_movies(movie_site_id,movies_info):
